@@ -4,7 +4,7 @@ Personal golang exercises from [freecodecamp](https://www.freecodecamp.org/news/
 
 ## How to run eac sample code
 
-Enter inside each individual exercise folder and `go run <filename>.go`.
+Enter inside each individual exercise folder and `go run <filename>.go [arguments maybe]`.
 
 ## What i am studying and what i am not
 
@@ -16,3 +16,4 @@ just to do that.
 ## Additional study sources
 
 - <https://gobyexample.com/command-line-arguments>
+- <https://pkg.go.dev/fmt>
