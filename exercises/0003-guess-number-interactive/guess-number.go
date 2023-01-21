@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 // https://pkg.go.dev/fmt#Scanln
 func main() {
