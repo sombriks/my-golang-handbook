@@ -1,10 +1,12 @@
-# Golang Handbook
+# My Golang Handbook
 
 Personal golang exercises from [freecodecamp](https://www.freecodecamp.org/news/go-beginners-handbook/)
+and various sources
 
-## How to run eac sample code
+## How to run each sample code
 
 Enter inside each individual exercise folder and `go run <filename>.go [arguments maybe]`.
+A dedicated README.md file might exist.
 
 ## What i am studying and what i am not
 
