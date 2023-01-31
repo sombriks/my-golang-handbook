@@ -46,6 +46,7 @@ snippets.
 - <https://golangdocs.com/>
 - <https://pkg.go.dev/fmt>
 - <https://pkg.go.dev/os#OpenFile>
+- <https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/hello-world>
 - <https://stackoverflow.com/a/69785897/420096>
 - <https://stackoverflow.com/a/51957548/420096>
 - <https://www.freecodecamp.org/news/go-beginners-handbook/>
