@@ -39,18 +39,24 @@ you want to punch code against the system.
 Several links used to understand at least one specific thing resent in the
 snippets.
 
+- <https://discord.gg/golang>
 - <https://go.dev/tour/flowcontrol/9>
 - <https://gobyexample.com/command-line-arguments>
 - <https://gobyexample.com/structs>
 - <https://gobyexample.com/maps>
+- <http://golangtutorials.blogspot.com/2011/06/methods-on-structs.html>
 - <https://gosamples.dev/string-to-bool/>
 - <https://golangdocs.com/>
 - <https://pkg.go.dev/fmt>
 - <https://pkg.go.dev/os#OpenFile>
 - <https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/hello-world>
+- <https://www.sohamkamani.com/golang/enums/>
 - <https://stackoverflow.com/a/69785897/420096>
 - <https://stackoverflow.com/a/51957548/420096>
+- <https://stackoverflow.com/a/67307008/420096>
+- <https://tutorialedge.net/golang/go-constructors-tutorial/>
 - <https://www.freecodecamp.org/news/go-beginners-handbook/>
 - <https://www.golangprograms.com/>
+- <https://www.groundlabs.com/blog/anatomy-of-a-credit-card/>
 - <https://zetcode.com/all/#go>
 - <https://zetcode.com/golang/rune/>
