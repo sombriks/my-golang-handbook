@@ -2,8 +2,8 @@
 
 Personal golang exercises from various sources
 
-Each exercise sample an unique behavior and might or might not rely on techniques
-already shown before.
+Each exercise sample an unique behavior and might or might not rely on
+techniques already shown before.
 
 ## How to run each sample code
 
@@ -29,19 +29,20 @@ just to do that.
 ~~I am not into syntax abuse party~~ I may do a little syntax abuse sometimes,
 yet all snippets should be clean and objective, easy to understand.
 
-I am not evangelizing the lang, the lang should evangelize by itselv.
+I am not evangelizing the lang, the lang should evangelize by itself.
 
 I am not here to say that one IDE/Editor is the best for the job, pick whatever
-you want to puch code against the system.
+you want to punch code against the system.
 
 ## Study sources
 
-Several links used to unerstand at least one specific thing resent in one of the
+Several links used to understand at least one specific thing resent in the
 snippets.
 
 - <https://go.dev/tour/flowcontrol/9>
 - <https://gobyexample.com/command-line-arguments>
 - <https://gobyexample.com/structs>
+- <https://gobyexample.com/maps>
 - <https://gosamples.dev/string-to-bool/>
 - <https://golangdocs.com/>
 - <https://pkg.go.dev/fmt>

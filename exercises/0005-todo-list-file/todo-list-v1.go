@@ -44,7 +44,8 @@ func loadFile() {
 func list() {
 	for i, e := range todos {
 		// https://stackoverflow.com/a/31483763/420096
-		fmt.Printf("%d) [%s] %s\n", i, map[bool]string{true: "✓", false: " "}[e.done], e.description)
+		check := map[bool]string{true: "✓", false: " "}
+		fmt.Printf("%d) [%s] %s\n", i, check[e.done], e.description)
 	}
 }
 
