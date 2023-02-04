@@ -21,8 +21,12 @@ Now although i didn't made a main function to serve as entrypoint, i can run the
 tests using this command:
 
 ```bash
-go test -v -cover -html=coverage.out
+go get golang.org/x/tools/cmd/cover
+go test -v -coverprofile=coverage.out
+go tool cover -html=coverage.out -o coverage.html
 ```
+
+![golang-coverage](golang-coverage.png)
 
 Or using your preferred IDE:
 
