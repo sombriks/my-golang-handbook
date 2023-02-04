@@ -21,7 +21,25 @@ Now although i didn't made a main function to serve as entrypoint, i can run the
 tests using this command:
 
 ```bash
+go test -v
+```
+
+## Don't forget coverage
+
+One nice thing to have when you already have tests is to enable coverage.
+
+Coverage helps to understand what is actually really getting tested, and thus
+produce new or better testcases.
+
+In order to enable coverage, install the cover tool:
+
+```bash
 go get golang.org/x/tools/cmd/cover
+```
+
+Now your test command takes this form:
+
+```bash
 go test -v -coverprofile=coverage.out
 go tool cover -html=coverage.out -o coverage.html
 ```
