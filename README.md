@@ -53,3 +53,4 @@ snippets.
 - <https://www.freecodecamp.org/news/go-beginners-handbook/>
 - <https://www.golangprograms.com/>
 - <https://zetcode.com/all/#go>
+- <https://zetcode.com/golang/rune/>

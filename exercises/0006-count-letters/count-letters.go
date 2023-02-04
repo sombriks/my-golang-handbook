@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
 )
 
 func main() {
@@ -11,14 +10,14 @@ func main() {
 	word := os.Args[1]
 	letters := map[string]int{}
 	fmt.Println(letters, " capacity: ", len(letters))
-	list := strings.Split(word, "")
 
-	for i := range list {
-		_, present := letters[list[i]]
+	for _, c := range word {
+		l := string(c)
+		_, present := letters[l]
 		if present {
-			letters[list[i]] += 1
+			letters[l] += 1
 		} else {
-			letters[list[i]] = 1
+			letters[l] = 1
 		}
 	}
 
