@@ -50,6 +50,7 @@ However, I expect a few key techniques to be sampled over those exercises:
 - basic I/O (files)
 - unit testing
 - concurrency (go routines and channels)
+- reflection
 - intermediate I/O (sockets)
 - database connection
 - REST service
