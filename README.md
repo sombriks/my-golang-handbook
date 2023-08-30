@@ -82,5 +82,5 @@ snippets.
 - <https://www.freecodecamp.org/news/go-beginners-handbook/>
 - <https://www.golangprograms.com/>
 - <https://www.groundlabs.com/blog/anatomy-of-a-credit-card/>
-- <https://zetcode.com/all/#go>
 - <https://zetcode.com/golang/rune/>
+- <https://udemy.com/course/multithreading-in-go-lang/>
