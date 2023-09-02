@@ -45,4 +45,8 @@ func main() {
 
 	time.Sleep(time.Duration(3) * time.Second)
 	fmt.Printf("Resulting balance with channels: %f\n", balance)
+
+	// not mandatory here because the program is about to finish anyway
+	// but remember to close your channels to signal the work is done
+	close(transactionChannel)
 }
