@@ -49,7 +49,8 @@ However, I expect a few key techniques to be sampled over those exercises:
 - loops
 - basic I/O (files)
 - unit testing
-- concurrency (go routines and channels)
+- concurrency I (classic mutexes and wait groups)
+- concurrency II (channels)
 - reflection
 - intermediate I/O (sockets)
 - database connection

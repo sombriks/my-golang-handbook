@@ -18,3 +18,4 @@
 todo.txt
 coverage.out
 coverage.html
+/.idea/kubernetes-settings.xml
