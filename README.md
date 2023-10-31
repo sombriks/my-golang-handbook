@@ -85,3 +85,4 @@ snippets.
 - <https://www.groundlabs.com/blog/anatomy-of-a-credit-card/>
 - <https://zetcode.com/golang/rune/>
 - <https://udemy.com/course/multithreading-in-go-lang/>
+- <https://go.dev/blog/laws-of-reflection>
