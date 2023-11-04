@@ -10,7 +10,8 @@ techniques already shown before.
 Enter inside each individual exercise folder and
 `go run <filename>.go [arguments maybe]`.
 
-A dedicated README.md file might exist sometimes.
+A dedicated README.md file might exist sometimes, explaining how to run the
+sample otherwise.
 
 ## What I am studying and what I am not
 
