@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func TestSimpleEchoTCP(t *testing.T) {
+func TestEchoTCP(t *testing.T) {
 	addr := ":8765"
 	message := "Hail from the other side!"
 
@@ -22,6 +22,17 @@ func TestSimpleEchoTCP(t *testing.T) {
 
 }
 
-func TestSimpleEchoUDP(t *testing.T) {
-	t.Skip()
+func TestEchoUDP(t *testing.T) {
+	addr := ":9876"
+	message := "Hail from the other side!"
+
+	go EchoUDPServer(addr)
+
+	time.Sleep(time.Duration(1) * time.Second)
+
+	result := EchoUDPClient(addr, message)
+
+	if "You said: Hail from the other side!\n" != result {
+		t.Fatal("Echoed message isn't the expected one")
+	}
 }
