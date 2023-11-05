@@ -19,7 +19,7 @@ func TestInvalidBrand(t *testing.T) {
 
 func TestInvalidBIN(t *testing.T) {
 
-	var card CreditCardInfo = CreditCardInfo{
+	card := CreditCardInfo{
 		"3417 1234 5678 9113",
 		Visa,
 	}
@@ -27,14 +27,16 @@ func TestInvalidBIN(t *testing.T) {
 	_, err := card.IsValid()
 
 	if err == nil {
-		t.Fatal("The brand isn't supposed to exists")
+		t.Fatal("The BIN isn't correct")
 	}
 
 }
 
 func TestInvalidMod10(t *testing.T) {
 
-	var card CreditCardInfo = CreditCardInfo{
+	var card CreditCardInfo
+
+	card = CreditCardInfo{
 		"4427 1234 5678 9113",
 		Visa,
 	}
