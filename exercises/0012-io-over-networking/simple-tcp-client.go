@@ -8,7 +8,7 @@ import (
 	"net"
 )
 
-func EchoClient(address string, message string) string {
+func EchoTCPClient(address string, message string) string {
 	connection, errConnection := net.Dial("tcp", address)
 	if errConnection != nil {
 		log.Panic(errConnection)

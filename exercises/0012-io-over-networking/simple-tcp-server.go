@@ -8,7 +8,7 @@ import (
 	"net"
 )
 
-func EchoServer(address string) {
+func EchoTCPServer(address string) {
 	listener, errServer := net.Listen("tcp", address)
 	if errServer != nil {
 		log.Panic(errServer)
