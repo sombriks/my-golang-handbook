@@ -11,13 +11,13 @@ import (
 type BrandNames string
 
 const (
-	American_express BrandNames = "American Express"
-	Visa             BrandNames = "Visa"
+	AmericanExpress BrandNames = "American Express"
+	Visa            BrandNames = "Visa"
 )
 
 var brands map[BrandNames]string = map[BrandNames]string{
-	American_express: "^34.*|^37.*",
-	Visa:             "^4",
+	AmericanExpress: "^34.*|^37.*",
+	Visa:            "^4",
 }
 
 type CreditCardInfo struct {

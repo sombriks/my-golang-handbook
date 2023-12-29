@@ -17,7 +17,7 @@ sample otherwise.
 
 I am looking at general operations that can be sampled on small snippets.
 
-I am following a metastructure for multi-purposes programming languages creating
+I am following a meta-structure for multipurpose programming languages creating
 sample cases for specific features that such kind of language are supposed to
 provide in order to solve common problems that computers should resolve.
 
@@ -38,24 +38,26 @@ you want to punch code against the system.
 
 ## A roadmap-ish path
 
-Besides folowing [a few](https://cursos.alura.com.br/formacao-go) 
+Besides following [a few](https://cursos.alura.com.br/formacao-go) 
 [online courses](https://www.udemy.com/course/go-programming-language/learn/lecture/5985510?start=0#overview),
 there is no defined path here.
 
 However, I expect a few key techniques to be sampled over those exercises:
 
-- hello world
-- handle low level (console) user input (interactive, parameters, env vars)
-- comparison
-- loops
-- basic I/O (files)
-- unit testing
-- concurrency I (classic mutexes and wait groups)
-- concurrency II (channels)
-- reflection
-- intermediate I/O (sockets)
-- database connection
-- REST service
+- Hello world
+- Handle low level (console) user input (interactive, parameters, env vars)
+- Comparison
+- Loops
+- Basic I/O (files)
+- Unit testing
+- Concurrency I (classic mutexes and wait groups)
+- Concurrency II (channels)
+- Reflection
+- Intermediate I/O (TCP/UDP)
+- Database connection
+- REST services
+- Service Streams (kafka, nats, mqtt)
+- Kubernetes Controllers and Operators
 
 After that, mostly everything else ends up in reading docs from some library
 
