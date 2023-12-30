@@ -89,3 +89,6 @@ snippets.
 - <https://zetcode.com/golang/rune/>
 - <https://udemy.com/course/multithreading-in-go-lang/>
 - <https://go.dev/blog/laws-of-reflection>
+- <https://go.dev/doc/tutorial/database-access>
+- <https://github.com/gostor/awesome-go-storage>
+- <https://go.dev/doc/modules/managing-dependencies>

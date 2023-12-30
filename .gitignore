@@ -19,3 +19,7 @@ todo.txt
 coverage.out
 coverage.html
 /.idea/kubernetes-settings.xml
+
+# databases
+todo-kv
+example0013
