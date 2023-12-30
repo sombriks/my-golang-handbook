@@ -39,7 +39,8 @@ you want to punch code against the system.
 ## A roadmap-ish path
 
 Besides following [a few](https://cursos.alura.com.br/formacao-go) 
-[online courses](https://www.udemy.com/course/go-programming-language/learn/lecture/5985510?start=0#overview),
+[online](https://www.udemy.com/course/go-programming-language/learn/lecture/5985510?start=0#overview)
+[courses](https://www.udemy.com/course/multithreading-in-go-lang/learn/lecture/18225828?start=0#overview),
 there is no defined path here.
 
 However, I expect a few key techniques to be sampled over those exercises:
@@ -92,3 +93,5 @@ snippets.
 - <https://go.dev/doc/tutorial/database-access>
 - <https://github.com/gostor/awesome-go-storage>
 - <https://go.dev/doc/modules/managing-dependencies>
+- <https://www.digitalocean.com/community/tutorials/how-to-use-dates-and-times-in-go>
+- <https://go.dev/blog/using-go-modules>

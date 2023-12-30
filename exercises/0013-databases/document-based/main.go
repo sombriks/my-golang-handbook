@@ -1,6 +1,7 @@
 package document_based
 
 import (
+	"0013-databases/model"
 	"fmt"
 	c "github.com/ostafen/clover"
 	"log"
@@ -13,5 +14,11 @@ func GetConnection() *c.DB {
 	if err != nil {
 		log.Panic(err)
 	}
+
+	_ = db.CreateCollection("todos")
 	return db
+}
+
+func Insert(db *c.DB, todo *model.Todo) interface{} {
+	doc := c.NewDocument()
 }
