@@ -1,6 +1,10 @@
 package model
 
-import "time"
+import (
+	"database/sql"
+	c "github.com/ostafen/clover"
+	"time"
+)
 
 type Todo struct {
 	Id          int64
@@ -8,6 +12,7 @@ type Todo struct {
 	Done        bool
 	Created     time.Time
 	Updated     time.Time
+	UUID        string
 }
 
 func (t Todo) ToMap() map[string]interface{} {
@@ -18,4 +23,20 @@ func (t Todo) ToMap() map[string]interface{} {
 	m["created"] = t.Created.Format(time.RFC3339)
 	m["updated"] = t.Updated.Format(time.RFC3339)
 	return m
+}
+
+func FromRow(row *sql.Rows) Todo {
+	var todo Todo
+	_ = row.Scan(&todo.Id, &todo.Description, &todo.Done, &todo.Created, &todo.Updated)
+	return todo
+}
+
+func FromDoc(doc *c.Document) Todo {
+	var todo Todo
+	todo.Id = doc.Get("id").(int64)                    // Cannot convert an expression of the type 'interface{}' to the type 'int64'
+	todo.Description = doc.Get("description").(string) // https://go.dev/tour/methods/15
+	todo.Created, _ = time.Parse(time.RFC3339, doc.Get("created").(string))
+	todo.Updated, _ = time.Parse(time.RFC3339, doc.Get("updated").(string))
+	todo.UUID = doc.ObjectId()
+	return todo
 }

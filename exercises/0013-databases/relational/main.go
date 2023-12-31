@@ -42,3 +42,19 @@ func Insert(db *sql.DB, todo *model.Todo) int64 {
 
 	return id
 }
+
+func List(db *sql.DB, q string) []model.Todo {
+	rows, err := db.Query(`
+		select * from todo
+	 	where lower(description) 
+	  	like lower('%'||?||'%')`, q)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+	result := make([]model.Todo, 0)
+	for rows.Next() {
+		result = append(result, model.FromRow(rows))
+	}
+	return result
+}

@@ -20,7 +20,20 @@ func GetConnection() *c.DB {
 }
 
 func Insert(db *c.DB, todo *model.Todo) string {
+	todo.Id = todo.Created.Unix() // It's an insert
 	doc := c.NewDocumentOf(todo.ToMap())
 	id, _ := db.InsertOne("todos", doc)
 	return id
+}
+
+func List(db *c.DB, q string) []model.Todo {
+	docs, err := db.Query("todos").Where(c.Field("description").Like(q)).FindAll()
+	if err != nil {
+		log.Panic(err)
+	}
+	result := make([]model.Todo, 0)
+	for _, doc := range docs {
+		result = append(result, model.FromDoc(doc))
+	}
+	return result
 }

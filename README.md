@@ -97,3 +97,5 @@ snippets.
 - <https://go.dev/blog/using-go-modules>
 - <https://gobyexample.com/json>
 - <https://www.calhoun.io/6-tips-for-using-strings-in-go/>
+- <https://go.dev/tour/methods/15>
+- <https://pkg.go.dev/encoding/json#Unmarshal>

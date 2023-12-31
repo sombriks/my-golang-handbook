@@ -35,6 +35,18 @@ func main() {
 	fmt.Printf("todo inserted\nrelational key: %d\ndocument key: %s\nkey/value key: %d\n", n1, n2, n3)
 
 	// list todos's
+	l1 := rel.List(c1, "")
+	for _, e := range l1 {
+		fmt.Printf("%+v\n", e)
+	}
+	l2 := doc.List(c2, "")
+	for _, e := range l2 {
+		fmt.Printf("%+v\n", e)
+	}
+	l3 := kv.List(c3, "2023") // We query keys on this guy
+	for _, e := range l3 {
+		fmt.Printf("%+v\n", e)
+	}
 
 	// update todo
 
