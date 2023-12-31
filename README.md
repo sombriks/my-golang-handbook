@@ -96,3 +96,4 @@ snippets.
 - <https://www.digitalocean.com/community/tutorials/how-to-use-dates-and-times-in-go>
 - <https://go.dev/blog/using-go-modules>
 - <https://gobyexample.com/json>
+- <https://www.calhoun.io/6-tips-for-using-strings-in-go/>

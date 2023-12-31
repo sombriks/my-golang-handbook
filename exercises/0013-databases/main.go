@@ -34,9 +34,9 @@ func main() {
 
 	fmt.Printf("todo inserted\nrelational key: %d\ndocument key: %s\nkey/value key: %d\n", n1, n2, n3)
 
-	// update todo
-
 	// list todos's
+
+	// update todo
 
 	// find todo
 
