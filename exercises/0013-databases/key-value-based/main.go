@@ -35,6 +35,11 @@ func List(db *leveldb.DB, keyPart string) []model.Todo {
 		_ = json.Unmarshal(values.Value(), &todo)
 		todos = append(todos, todo)
 	}
-
 	return todos
+}
+
+func Update(db *leveldb.DB, todo model.Todo) {
+	todo.Updated = time.Now()
+	_todo, _ := json.Marshal(todo)
+	_ = db.Put([]byte(todo.Created.Format(time.RFC3339)), _todo, nil)
 }

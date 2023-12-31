@@ -49,6 +49,21 @@ func main() {
 	}
 
 	// update todo
+	if len(l1) > 0 {
+		l1[0].Description = "Updated description"
+		l1[0].Done = true
+		rel.Update(c1, l1[0])
+	}
+	if len(l2) > 0 {
+		l2[0].Description = "Updated description"
+		l2[0].Done = true
+		doc.Update(c2, l2[0])
+	}
+	if len(l3) > 0 {
+		l3[0].Description = "Updated description"
+		l3[0].Done = true
+		kv.Update(c3, l3[0])
+	}
 
 	// find todo
 

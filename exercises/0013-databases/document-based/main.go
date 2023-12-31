@@ -5,6 +5,7 @@ import (
 	"fmt"
 	c "github.com/ostafen/clover"
 	"log"
+	"time"
 )
 
 func GetConnection() *c.DB {
@@ -36,4 +37,18 @@ func List(db *c.DB, q string) []model.Todo {
 		result = append(result, model.FromDoc(doc))
 	}
 	return result
+}
+
+func Update(db *c.DB, todo model.Todo) {
+	todo.Updated = time.Now()
+
+	err := db.
+		Query("todos").
+		Where(c.Field("id").
+			Eq(todo.Id)).
+		Update(todo.ToMap())
+
+	if err != nil {
+		log.Panic(err)
+	}
 }

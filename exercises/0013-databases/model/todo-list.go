@@ -12,7 +12,6 @@ type Todo struct {
 	Done        bool
 	Created     time.Time
 	Updated     time.Time
-	UUID        string
 }
 
 func (t Todo) ToMap() map[string]interface{} {
@@ -37,6 +36,5 @@ func FromDoc(doc *c.Document) Todo {
 	todo.Description = doc.Get("description").(string) // https://go.dev/tour/methods/15
 	todo.Created, _ = time.Parse(time.RFC3339, doc.Get("created").(string))
 	todo.Updated, _ = time.Parse(time.RFC3339, doc.Get("updated").(string))
-	todo.UUID = doc.ObjectId()
 	return todo
 }

@@ -6,6 +6,7 @@ import (
 	"fmt"
 	_ "github.com/mattn/go-sqlite3" // import database drv
 	"log"
+	"time"
 )
 
 func GetConnection() *sql.DB {
@@ -57,4 +58,20 @@ func List(db *sql.DB, q string) []model.Todo {
 		result = append(result, model.FromRow(rows))
 	}
 	return result
+}
+
+func Update(db *sql.DB, todo model.Todo) int64 {
+	todo.Updated = time.Now()
+	result, err := db.Exec(`
+		update todo set 
+		description = ?,
+		done = ?,
+		updated = ?
+		where id = ?
+	`, todo.Description, todo.Done, todo.Updated, todo.Id)
+	if err != nil {
+		log.Fatal(err)
+	}
+	affected, _ := result.RowsAffected()
+	return affected
 }
