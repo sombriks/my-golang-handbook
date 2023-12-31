@@ -2,9 +2,11 @@ package key_value_based
 
 import (
 	"0013-databases/model"
+	"encoding/json"
 	"fmt"
 	"github.com/syndtr/goleveldb/leveldb"
 	"log"
+	"time"
 )
 
 func GetConnection() *leveldb.DB {
@@ -18,6 +20,7 @@ func GetConnection() *leveldb.DB {
 
 func Insert(db *leveldb.DB, todo *model.Todo) int64 {
 	todo.Id = todo.Created.Unix()
-	_ = db.Put([]byte(todo.Id), []byte(todo), nil)
+	_todo, _ := json.Marshal(todo)
+	_ = db.Put([]byte(todo.Created.Format(time.RFC3339)), _todo, nil)
 	return todo.Id
 }

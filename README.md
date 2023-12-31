@@ -95,3 +95,4 @@ snippets.
 - <https://go.dev/doc/modules/managing-dependencies>
 - <https://www.digitalocean.com/community/tutorials/how-to-use-dates-and-times-in-go>
 - <https://go.dev/blog/using-go-modules>
+- <https://gobyexample.com/json>

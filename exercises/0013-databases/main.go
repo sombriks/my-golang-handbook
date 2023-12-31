@@ -5,6 +5,7 @@ import (
 	kv "0013-databases/key-value-based"
 	"0013-databases/model"
 	rel "0013-databases/relational"
+	"fmt"
 	"time"
 )
 
@@ -20,16 +21,18 @@ func main() {
 	defer c2.Close()
 	defer c3.Close()
 
-	// create todo
 	newTodo := model.Todo{
 		Description: "put trash out",
 		Created:     time.Now(),
 		Done:        false,
 	}
 
+	// insert todo
 	n1 := rel.Insert(c1, &newTodo)
 	n2 := doc.Insert(c2, &newTodo)
 	n3 := kv.Insert(c3, &newTodo)
+
+	fmt.Printf("todo inserted\nrelational key: %d\ndocument key: %s\nkey/value key: %d\n", n1, n2, n3)
 
 	// update todo
 

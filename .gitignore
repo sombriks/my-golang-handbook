@@ -21,5 +21,7 @@ coverage.html
 /.idea/kubernetes-settings.xml
 
 # databases
+todo-doc
 todo-kv
+todo.db
 example0013

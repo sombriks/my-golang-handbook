@@ -10,7 +10,7 @@ import (
 func GetConnection() *c.DB {
 	fmt.Println("get connection for document-based database")
 
-	db, err := c.Open("clover-db")
+	db, err := c.Open("todo-doc")
 	if err != nil {
 		log.Panic(err)
 	}
@@ -19,6 +19,8 @@ func GetConnection() *c.DB {
 	return db
 }
 
-func Insert(db *c.DB, todo *model.Todo) interface{} {
-	doc := c.NewDocument()
+func Insert(db *c.DB, todo *model.Todo) string {
+	doc := c.NewDocumentOf(todo.ToMap())
+	id, _ := db.InsertOne("todos", doc)
+	return id
 }
