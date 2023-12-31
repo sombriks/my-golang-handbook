@@ -19,8 +19,9 @@ Module created locally with `go mod init 0013-databases`
 go build -o example0013 .
 ```
 
-## Running tests
+## Running tests and building coverage report
 
 ```bash
-go test -v
+go test -v -coverprofile=coverage.out ./relational ./key-value-based ./document-based
+go tool cover -html=coverage.out -o coverage.html
 ```

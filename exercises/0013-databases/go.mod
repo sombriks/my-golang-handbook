@@ -24,6 +24,8 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/satori/go.uuid v1.2.0 // indirect
 	go.opencensus.io v0.22.5 // indirect
-	golang.org/x/net v0.0.0-20211015210444-4f30a5c0130f // indirect
-	golang.org/x/sys v0.0.0-20211019181941-9d821ace8654 // indirect
+	golang.org/x/net v0.5.0 // indirect
+	golang.org/x/sys v0.4.0 // indirect
+	golang.org/x/tools v0.5.1-0.20230111220935-a7f7db3f17fc // indirect
+	golang.org/x/tools/cmd/cover v0.1.0-deprecated // indirect
 )
