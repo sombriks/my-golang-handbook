@@ -24,7 +24,13 @@ func (t Todo) ToMap() map[string]interface{} {
 	return m
 }
 
-func FromRow(row *sql.Rows) Todo {
+func FromRows(row *sql.Rows) Todo {
+	var todo Todo
+	_ = row.Scan(&todo.Id, &todo.Description, &todo.Done, &todo.Created, &todo.Updated)
+	return todo
+}
+
+func FromRow(row *sql.Row) Todo {
 	var todo Todo
 	_ = row.Scan(&todo.Id, &todo.Description, &todo.Done, &todo.Created, &todo.Updated)
 	return todo
@@ -34,6 +40,7 @@ func FromDoc(doc *c.Document) Todo {
 	var todo Todo
 	todo.Id = doc.Get("id").(int64)                    // Cannot convert an expression of the type 'interface{}' to the type 'int64'
 	todo.Description = doc.Get("description").(string) // https://go.dev/tour/methods/15
+	todo.Done = doc.Get("done").(bool)
 	todo.Created, _ = time.Parse(time.RFC3339, doc.Get("created").(string))
 	todo.Updated, _ = time.Parse(time.RFC3339, doc.Get("updated").(string))
 	return todo

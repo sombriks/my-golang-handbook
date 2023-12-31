@@ -55,7 +55,7 @@ func List(db *sql.DB, q string) []model.Todo {
 	defer rows.Close()
 	result := make([]model.Todo, 0)
 	for rows.Next() {
-		result = append(result, model.FromRow(rows))
+		result = append(result, model.FromRows(rows))
 	}
 	return result
 }
@@ -69,6 +69,20 @@ func Update(db *sql.DB, todo model.Todo) int64 {
 		updated = ?
 		where id = ?
 	`, todo.Description, todo.Done, todo.Updated, todo.Id)
+	if err != nil {
+		log.Fatal(err)
+	}
+	affected, _ := result.RowsAffected()
+	return affected
+}
+
+func Find(db *sql.DB, id int64) model.Todo {
+	row := db.QueryRow("select * from todo where id = ?", id)
+	return model.FromRow(row)
+}
+
+func Del(db *sql.DB, id int64) int64 {
+	result, err := db.Exec("delete from todo where id = ?", id)
 	if err != nil {
 		log.Fatal(err)
 	}

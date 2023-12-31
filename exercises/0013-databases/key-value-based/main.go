@@ -43,3 +43,20 @@ func Update(db *leveldb.DB, todo model.Todo) {
 	_todo, _ := json.Marshal(todo)
 	_ = db.Put([]byte(todo.Created.Format(time.RFC3339)), _todo, nil)
 }
+
+func Find(db *leveldb.DB, id int64) model.Todo {
+	value, err := db.Get([]byte(time.Unix(id, 0).Format(time.RFC3339)), nil)
+	if err != nil {
+		log.Panic(err)
+	}
+	var todo model.Todo
+	_ = json.Unmarshal(value, &todo)
+	return todo
+}
+
+func Del(db *leveldb.DB, id int64) {
+	err := db.Delete([]byte(time.Unix(id, 0).Format(time.RFC3339)), nil)
+	if err != nil {
+		log.Panic(err)
+	}
+}

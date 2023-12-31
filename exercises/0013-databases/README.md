@@ -8,7 +8,7 @@ Module created locally with `go mod init 0013-databases`
 
 - Relational SQL databases
   - <https://github.com/mattn/go-sqlite3> 
-- NoSQL document databases
+- NoSQL, document databases
   - <https://github.com/ostafen/clover> 
 - Key/Value databases
   - <https://github.com/syndtr/goleveldb> 

@@ -52,3 +52,24 @@ func Update(db *c.DB, todo model.Todo) {
 		log.Panic(err)
 	}
 }
+
+func Find(db *c.DB, id int64) model.Todo {
+	doc, _ := db.
+		Query("todos").
+		Where(c.Field("id").
+			Eq(id)).
+		FindFirst()
+	return model.FromDoc(doc)
+}
+
+func Del(db *c.DB, id int64) {
+	err := db.
+		Query("todos").
+		Where(c.Field("id").
+			Eq(id)).
+		Delete()
+
+	if err != nil {
+		log.Panic(err)
+	}
+}

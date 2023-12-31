@@ -66,7 +66,28 @@ func main() {
 	}
 
 	// find todo
+	if len(l1) > 0 {
+		todo := rel.Find(c1, l1[0].Id)
+		fmt.Printf("todo for id %d: %+v\n", l1[0].Id, todo)
+	}
+	if len(l2) > 0 {
+		todo := doc.Find(c2, l2[0].Id)
+		fmt.Printf("todo for id %d: %+v\n", l2[0].Id, todo)
+	}
+	if len(l3) > 0 {
+		todo := kv.Find(c3, l3[0].Id)
+		fmt.Printf("todo for id %d: %+v\n", l3[0].Id, todo)
+	}
 
 	// delete todo
+	if len(l1) > 0 {
+		rel.Del(c1, l1[0].Id)
+	}
+	if len(l2) > 0 {
+		doc.Del(c2, l2[0].Id)
+	}
+	if len(l3) > 0 {
+		kv.Del(c3, l3[0].Id)
+	}
 
 }
