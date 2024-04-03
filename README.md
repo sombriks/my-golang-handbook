@@ -50,14 +50,15 @@ However, I expect a few key techniques to be sampled over those exercises:
 - Comparison
 - Loops
 - Basic I/O (files)
-- Unit testing
+- Unit testing and coverage
 - Concurrency I (classic mutexes and wait groups)
 - Concurrency II (channels)
 - Reflection
 - Intermediate I/O (TCP/UDP)
-- Database connection
+- Database (relational, document, key/value and ORM)
 - REST services
 - Service Streams (kafka, nats, mqtt)
+- Docker plugin (using go-plugin-helpers)
 - Kubernetes Controllers and Operators
 
 After that, mostly everything else ends up in reading docs from some library
@@ -99,3 +100,5 @@ snippets.
 - <https://www.calhoun.io/6-tips-for-using-strings-in-go/>
 - <https://go.dev/tour/methods/15>
 - <https://pkg.go.dev/encoding/json#Unmarshal>
+- <https://gobyexample.com/struct-embedding>
+- <https://github.com/docker/go-plugins-helpers>
