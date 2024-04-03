@@ -35,7 +35,7 @@ func (agenda *Agenda) ListByAddress(q string) (*[]model.Contact, error) {
 		Preload("Addresses").
 		Where(`id in (
 				select contact_id 
-				from contacts 
+				from addresses 
 				where lower(street) like lower(?))`, like).
 		Find(&result).Error
 	return &result, err

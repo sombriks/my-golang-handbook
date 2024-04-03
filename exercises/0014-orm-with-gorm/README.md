@@ -26,7 +26,14 @@ go build
 ## How to test
 
 ```bash
-go test
+go test -v -coverprofile=coverage.out ./app
+```
+
+If you want a better coverage report (line above just prints total coverage %)
+add the following command:
+
+```bash
+go tool cover -html=coverage.out -o coverage.html
 ```
 
 ## Noteworthy
@@ -35,7 +42,10 @@ go test
   [pluralized][gorm-plural], timestamps must exists and primary key is `id`.
 - associations, when desired, must be explicitly [preloaded][gorm-preload] on 
   queries, but will be saved in a transparent way. 
+- golang has a [rudimentary setup/teardown system for testcases][go-test]. But
+  it does the job and we can gracefully prepare and close the database.
 
 [gorm]: https://gorm.io/
 [gorm-plural]: https://gorm.io/docs/models.html#Conventions
 [gorm-preload]: https://gorm.io/docs/preload.html
+[go-test]: https://pkg.go.dev/testing#hdr-Main
