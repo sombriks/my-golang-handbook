@@ -19,6 +19,7 @@ todo.txt
 coverage.out
 coverage.html
 /.idea/kubernetes-settings.xml
+.DS_Store
 
 # databases
 todo-doc
