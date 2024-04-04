@@ -31,7 +31,7 @@ just to do that.
 sometimes](exercises/0005-todo-list-file/todo-list-v1.go), yet all snippets
 should be clean and objective, easy to understand.
 
-I am not evangelizing the lang, the lang should evangelize by itself.
+I am not evangelizing the lang, the lang should evangelize itself.
 
 I am not here to say that one IDE/Editor is the best for the job, pick whatever
 you want to punch code against the system.
@@ -47,16 +47,15 @@ However, I expect a few key techniques to be sampled over those exercises:
 
 - Hello world
 - Handle low level (console) user input (interactive, parameters, env vars)
-- Comparison
-- Loops
+- Control flows (conditionals, loops, functions) and structures
 - Basic I/O (files)
 - Unit testing and coverage
 - Concurrency I (classic mutexes and wait groups)
 - Concurrency II (channels)
 - Reflection
-- Intermediate I/O (TCP/UDP)
+- Intermediate I/O ('low level' TCP/UDP)
 - Database (relational, document, key/value and ORM)
-- REST services
+- REST services (fiber, but could be any)
 - Service Streams (kafka, nats, mqtt)
 - Docker plugin (using go-plugin-helpers)
 - Kubernetes Controllers and Operators
@@ -102,3 +101,4 @@ snippets.
 - <https://pkg.go.dev/encoding/json#Unmarshal>
 - <https://gobyexample.com/struct-embedding>
 - <https://github.com/docker/go-plugins-helpers>
+- <https://github.com/jeroendk/go-tcp-udp>
