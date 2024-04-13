@@ -1,0 +1,5 @@
+form(id="form", hx-post="/todos", hx-on::after-request="this.reset()",
+    hx-swap="outerHTML", hx-target="#table")
+    label Description
+        input(name="description", placeholder="New todo here")
+    button(type="submit") Save

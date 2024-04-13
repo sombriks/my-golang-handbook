@@ -1,0 +1,10 @@
+html
+    head
+        title Sample Fiber with HTMX
+        script(src="/htmx-1.9.11.min.js")
+        script.
+            htmx.logAll()
+    body
+        h1 TODO list
+        include todos/form.pug
+        include todos/list.pug
