@@ -4,5 +4,21 @@ table(id="table")
         th Description
         th Done?
         th
-    tr
-
+    each val in .todos
+        tr
+              td #{.Id}
+                  input(name="id" value="{{.Id}}" type="hidden" class="edit{{.Id}}")
+              td
+                  input(name="description" value="{{.Description}}" class="edit{{.Id}}")
+              td
+                  // TODO is there another way?
+                  select(name="done" class="edit{{.Id}}")
+                      if .Done
+                          option(selected) true
+                          option false
+                      else
+                          option true
+                          option(selected) false
+              td
+                  button(hx-put="/todos/{{.Id}}", hx-swap="outerHTML",
+                      hx-target="#table", hx-include=".edit{{.Id}}") Save

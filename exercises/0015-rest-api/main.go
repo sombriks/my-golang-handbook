@@ -5,10 +5,11 @@ import (
 	"log"
 )
 
+// application entrypoint
 func main() {
 	var s app.Server
-	err := s.Start()
-	if err != nil {
+
+	if err := s.Start(nil); err != nil {
 		log.Fatal(err)
 	}
 }

@@ -31,7 +31,6 @@ go run main.go
 
 or
 
-
 ```bash
 go build
 ./0015-rest-api
@@ -41,10 +40,20 @@ go build
 ## How to test
 
 ```bash
-
+# TODO
 ```
 
 ## Noteworthy
 
+- Compared with the [chi implementation][go-chi-htmx], fiber version is quite
+  similar.
+- Pug is ugly but easy to read at the same time. To make things worse, the 
+  [template engine][fiber-template] seems to use a mix of official pug and
+  [GO templates][go-templates]. I don't know how to feel about this template
+  engine right now.
+
 [fiber]: https://docs.gofiber.io/
 [gorm]: https://gorm.io
+[go-chi-htmx]: https://github.com/sombriks/sample-htmx-chi/tree/main
+[fiber-template]: https://docs.gofiber.io/template/
+[go-templates]: https://pkg.go.dev/html/template
