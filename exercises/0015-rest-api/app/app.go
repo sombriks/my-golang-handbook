@@ -28,7 +28,7 @@ func (s *Server) Start(service any) error {
 
 	// setup fiber
 	engine := pug.New("./app/templates", ".pug")
-	engine.Reload(true)
+	engine.Reload(false)
 	s.app = fiber.New(fiber.Config{
 		Views: engine,
 	})
