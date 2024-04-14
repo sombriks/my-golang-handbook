@@ -1,4 +1,4 @@
-# REST/JSON API with fiber
+# ~~REST/JSON API~~ HTMX todo app with fiber
 
 Using a framework to make api development and test easier
 
@@ -7,7 +7,8 @@ Using a framework to make api development and test easier
 - go 1.20
 - [fiber][fiber] v3
 - [gorm][gorm] 1.25
-- go-sqlite3 1.14 
+- go-sqlite3 1.14
+- [htmx][htmx] 1.9
 
 ## Project setup
 
@@ -51,9 +52,11 @@ go build
   [template engine][fiber-template] seems to use a mix of official pug and
   [GO templates][go-templates]. I don't know how to feel about this template
   engine right now.
+- htmx custom atributes in pug simply works, as expected
 
 [fiber]: https://docs.gofiber.io/
 [gorm]: https://gorm.io
+[htmx]: https://htmx.org
 [go-chi-htmx]: https://github.com/sombriks/sample-htmx-chi/tree/main
 [fiber-template]: https://docs.gofiber.io/template/
 [go-templates]: https://pkg.go.dev/html/template
