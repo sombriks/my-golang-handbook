@@ -55,7 +55,7 @@ However, I expect a few key techniques to be sampled over those exercises:
 - Reflection
 - Intermediate I/O ('low level' TCP/UDP)
 - Database (relational, document, key/value and ORM)
-- REST services (fiber, but could be any)
+- REST services (echo, fiber, but could be any)
 - Service Streams (kafka, nats, mqtt)
 - Docker plugin (using go-plugin-helpers)
 - Kubernetes Controllers and Operators
