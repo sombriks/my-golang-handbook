@@ -16,17 +16,20 @@ type App struct {
 
 // NewApp - instantiates and configures the app
 func NewApp() (app *App) {
-	var err error
-	app = &App{}
+	app = &App{echo: echo.New()}
 
-	app.echo = echo.New()
+	// Database setup
+	var err error
 	app.dbconfig, err = configs.NewDBConfig()
 	if err != nil {
 		app.echo.Logger.Fatal(err)
 	}
+
+	// business setup
 	app.todoService = services.NewTodoService(app.dbconfig)
 	app.todoController = controllers.NewTodoController(app.todoService)
 
+	// wiring routes -- could we down that to controllers setup? yes?
 	app.echo.GET("/todos", app.todoController.List)
 	app.echo.POST("/todos", app.todoController.Insert)
 	app.echo.GET("/todos/:id", app.todoController.Find)

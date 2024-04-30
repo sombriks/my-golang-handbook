@@ -5,13 +5,13 @@ Using a framework to make api development and test easier
 ## Requirements
 
 - go 1.22
-- echo v4
-- goqu v9
-- docker 25 (for postgres)
+- echo v4 (api)
+- goqu v9 (db/query builder)
+- docker 25 (to provision a postgres)
 
 ## How to run
 
-Be sure to have docker compose running the test postgres database:
+Be sure to have docker compose running the development postgres database:
 
 ```bash
 # cd exercises/0016-rest-json
@@ -32,5 +32,11 @@ go build
 
 ## Noteworthy
 
+- I have a fond for query builders since [knex][knex] and [goqu][goqu] is a nice
+  surprise.
+- The echo's [bind api][echo-bind] delivers the best data handling experience in
+  go ecosystem so far.
 
 [echo]: https://echo.labstack.com/docs/quick-start
+[knex]: https://knexjs.org/
+[echo-bind]: https://echo.labstack.com/docs/binding
