@@ -1,7 +1,8 @@
 package main
 
-import "fmt"
+import "0016-rest-json/app"
 
 func main() {
-	fmt.Println("Hello!")
+	s := app.NewApp()
+	s.Run()
 }

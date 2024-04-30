@@ -1,0 +1,12 @@
+---
+services:
+  todo-db:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-todo}
+    volumes:
+      - ./initial.sql:/docker-entrypoint-initdb.d/initial.sql
