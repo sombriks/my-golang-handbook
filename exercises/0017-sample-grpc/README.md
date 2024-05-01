@@ -104,11 +104,15 @@ And finally [configure the project][sqlc-configure], so we can generate
 database client code:
 
 ```bash
-# cd 0017-sample-grpc/sample-grpc-server
+# cd 0017-sample-grpc
+cd sample-grpc-server
 sqlc generate
 ```
 
 ## How to build
+
+Besides hit `sqlc generate` every time a query is modified, you need to generate
+grpc code as well.
 
 Projects are independent of each other, in fact client/server could be written
 in many different languages.

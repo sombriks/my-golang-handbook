@@ -33,6 +33,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	// set schema state
 	_, err = db.ExecContext(ctx, ddl)
 	if err != nil {

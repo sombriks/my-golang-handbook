@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"google.golang.org/protobuf/types/known/timestamppb"
 	"log"
 	"sample-grpc-server/db/gen"
 	pb "sample-grpc-server/protos"
@@ -21,7 +22,23 @@ func (s *TodoServer) List(ctx context.Context, request *pb.TodoRequest) (*pb.Tod
 	if err != nil {
 		log.Printf("[WARN] %s\n", err.Error())
 	}
-	log.Print(result)
+	for _, e := range result {
+		// TODO how to solve domain fragmentation?
+		response.Items = append(
+			response.Items,
+			&pb.Todo{
+				Id:          &e.ID,
+				Description: &e.Description,
+				Done:        &e.Done,
+				Created: &timestamppb.Timestamp{
+					Seconds: e.Created.Unix(),
+				},
+				Updated: &timestamppb.Timestamp{
+					Seconds: e.Updated.Unix(),
+				},
+			},
+		)
+	}
 	return &response, nil
 }
 
