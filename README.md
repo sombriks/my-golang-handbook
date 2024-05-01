@@ -57,6 +57,7 @@ However, I expect a few key techniques to be sampled over those exercises:
 - Database (relational, document, key/value and ORM)
 - REST services (echo, fiber, but could be any)
 - Service Streams (kafka, nats, mqtt)
+- Publish and consume packages
 - Docker plugin (using go-plugin-helpers)
 - Kubernetes Controllers and Operators
 
@@ -67,6 +68,7 @@ After that, mostly everything else ends up in reading docs from some library
 Several links used to understand at least one specific thing resent in the
 snippets.
 
+- <https://go-proverbs.github.io/>
 - <https://discord.gg/golang>
 - <https://gophers.slack.com/>
 - <https://go.dev/tour/flowcontrol/9>

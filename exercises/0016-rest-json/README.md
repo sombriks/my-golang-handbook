@@ -27,8 +27,22 @@ go build
 
 ## How to test
 
+Perform some requests to the running API:
+
 ```bash
+# list todos
+curl -X GET http://localhost:1323/todos
+# find by id
+curl -X GET http://localhost:1323/todos/2
+# insert todo
+curl -X POST --json '{"description":"new task"}' http://localhost:1323/todos
+# update todo
+curl -X PUT --json '{"description":"task updated"}' http://localhost:1323/todos/2
+# delete todo
+curl -X DELETE http://localhost:1323/todos/3
 ```
+
+
 
 ## Noteworthy
 
