@@ -5,6 +5,8 @@ import (
 	"0016-rest-json/app/controllers"
 	"0016-rest-json/app/services"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
+	"log"
 )
 
 type App struct {
@@ -17,6 +19,14 @@ type App struct {
 // NewApp - instantiates and configures the app
 func NewApp() (app *App) {
 	app = &App{echo: echo.New()}
+	app.echo.Use(middleware.RequestLoggerWithConfig(middleware.RequestLoggerConfig{
+		LogStatus: true,
+		LogURI:    true,
+		LogValuesFunc: func(c echo.Context, v middleware.RequestLoggerValues) error {
+			log.Printf("%v, %v\n", v.Status, v.URI)
+			return nil
+		},
+	}))
 
 	// Database setup
 	var err error
@@ -27,14 +37,7 @@ func NewApp() (app *App) {
 
 	// business setup
 	app.todoService = services.NewTodoService(app.dbconfig)
-	app.todoController = controllers.NewTodoController(app.todoService)
-
-	// wiring routes -- could we down that to controllers setup? yes?
-	app.echo.GET("/todos", app.todoController.List)
-	app.echo.POST("/todos", app.todoController.Insert)
-	app.echo.GET("/todos/:id", app.todoController.Find)
-	app.echo.PUT("/todos/:id", app.todoController.Update)
-	app.echo.DELETE("/todos/:id", app.todoController.Delete)
+	app.todoController = controllers.NewTodoController(app.echo, app.todoService)
 
 	return
 }
