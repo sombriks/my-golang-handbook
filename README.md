@@ -24,8 +24,9 @@ provide in order to solve common problems that computers should resolve.
 In a very simplistic way, i am exploring all possible ways to grab data from the
 disk, put it into memory, do some calculations and then put it back into storage.
 
-I am not structuring big brains project configs, there will be other projects
-just to do that.
+~~I am not structuring big brains project configs, there will be other~~
+~~projects just to do that.~~ Ok advanced examples might get
+[a bit complex](exercises/0016-rest-json).
 
 ~~I am not into syntax abuse party~~ [I may do a little syntax abuse 
 sometimes](exercises/0005-todo-list-file/todo-list-v1.go), yet all snippets
@@ -104,3 +105,4 @@ snippets.
 - <https://gobyexample.com/struct-embedding>
 - <https://github.com/docker/go-plugins-helpers>
 - <https://github.com/jeroendk/go-tcp-udp>
+- <https://protobuf.dev/reference/protobuf/proto3-spec/>

@@ -1,0 +1,33 @@
+// Let's try something completely different
+package protos;
+
+import "google/protobuf/timestamp.proto";
+
+message Todo {
+  optional int64 id = 1;
+  optional string description = 2;
+  optional bool done = 3;
+  optional google.protobuf.Timestamp created = 4;
+  optional google.protobuf.Timestamp updated = 5;
+
+}
+
+message TodoRequest {
+  optional string q = 1;
+  optional int64 id = 2;
+  optional Todo todo = 3;
+}
+
+message  TodoResponse {
+  repeated Todo items = 1;
+  repeated int64 ids = 2;
+  optional int64 affected = 3;
+}
+
+service TodoService {
+  rpc List (TodoRequest) returns (TodoResponse);
+  rpc Insert (TodoRequest) returns (TodoResponse);
+  rpc Find (TodoRequest) returns (TodoResponse);
+  rpc Update (TodoRequest) returns (TodoResponse);
+  rpc Delete (TodoRequest) returns (TodoResponse);
+}
