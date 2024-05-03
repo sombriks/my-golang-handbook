@@ -1,4 +1,6 @@
 // Let's try something completely different
+syntax = "proto3";
+
 package protos;
 
 import "google/protobuf/timestamp.proto";

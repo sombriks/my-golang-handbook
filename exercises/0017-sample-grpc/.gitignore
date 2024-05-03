@@ -1,4 +1,3 @@
 todos.db
-sample-grpc-client/protos
-sample-grpc-server/protos
-sample-grpc-server/db/gen
+sample-grpc-client/sample-grpc-client
+sample-grpc-server/sample-grpc-server

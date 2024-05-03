@@ -15,6 +15,11 @@ distributed system part.
 
 _Famous last words_.
 
+The sqlc approach is quite fine: provide a schema, create some queries, then a
+database client specially tailored for those two is generated. That way all the
+complexity of put together all what a query would need get hidden under the 
+generated mappings.
+
 ## Requirements
 
 - go 1.22
@@ -46,14 +51,59 @@ touch ./protos/todo.proto
 mkdir -p ./sample-grpc-server/db
 ```
 
-Then you need to install [the protobuffer compiler][protoc] and golang plugins:
+### gRPC and protobuf
+
+Install [the protobuffer compiler][protoc]:
+
+```bash
+sudo dnf install protobuf-compiler protobuf-devel
+```
+
+And golang plugins for gRPC:
 
 ```bash
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ```
 
-[Install sqlc][sqlc-install] after that and init server project:
+Then define your gRPC service:
+
+```protobuf
+// in 0017-sample-grpc/protos folder
+
+// ... other definitions 
+
+service TodoService {
+  rpc List (TodoRequest) returns (TodoResponse);
+  rpc Insert (TodoRequest) returns (TodoResponse);
+  rpc Find (TodoRequest) returns (TodoResponse);
+  rpc Update (TodoRequest) returns (TodoResponse);
+  rpc Delete (TodoRequest) returns (TodoResponse);
+}
+```
+
+And use the following command to generate client and server code:
+
+```bash
+# compile for server
+protoc --go_opt=Mprotos/todo.proto=sample-grpc-server/protos --go_out=. \
+  --go-grpc_opt=Mprotos/todo.proto=sample-grpc-server/protos --go-grpc_out=. \
+  protos/todo.proto
+# comile for client
+protoc --go_opt=Mprotos/todo.proto=sample-grpc-client/protos --go_out=. \
+  --go-grpc_opt=Mprotos/todo.proto=sample-grpc-client/protos --go-grpc_out=. \
+  protos/todo.proto
+```
+
+### sqlc
+
+[Install sqlc][sqlc-install] cli:
+
+```bash
+go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
+```
+
+And after that init server project:
 
 ```bash
 sqlc init
@@ -88,20 +138,20 @@ create table if not exists todos (
 );
 ```
 
-Create The queries in `sample-grp-server/db/queries.sql` file:
+Create the queries in `sample-grp-server/db/queries.sql` file:
 
 ```sql
 -- name: List :many
-select * from todos where lower(description) like lower(concat('%',?,'%'))
+select * from todos where lower(description) like lower(concat('%',?,'%'));
 
 -- name: Find :one
-select * from todos where id = ?
+select * from todos where id = ?;
 
 -- the other queries
 ```
 
-And finally [configure the project][sqlc-configure], so we can generate
-database client code:
+Finally [configure the sqlc project][sqlc-configure], generating the database
+client code:
 
 ```bash
 # cd 0017-sample-grpc
@@ -111,44 +161,11 @@ sqlc generate
 
 ## How to build
 
-Besides hit `sqlc generate` every time a query is modified, you need to generate
-grpc code as well.
-
-Projects are independent of each other, in fact client/server could be written
-in many different languages.
-
-But you will need the code generation step for both projects:
-
-```bash
-# compile for server
-protoc --go_opt=Mprotos/todo.proto=sample-grpc-server/protos --go_out=. \
-  --go-grpc_opt=Mprotos/todo.proto=sample-grpc-server/protos --go-grpc_out=. \
-  protos/todo.proto
-# comile for client
-protoc --go_opt=Mprotos/todo.proto=sample-grpc-client/protos --go_out=. \
-  --go-grpc_opt=Mprotos/todo.proto=sample-grpc-client/protos --go-grpc_out=. \
-  protos/todo.proto
-```
-
 Once client and server gets created, complete the client and server code as
 described in [this tutorial][basics]. For example, our protobuf definition
-defines a `service` called **TodoService**:
-
-```protobuf
-// ... other definitions 
-
-service TodoService {
-  rpc List (TodoRequest) returns (TodoResponse);
-  rpc Insert (TodoRequest) returns (TodoResponse);
-  rpc Find (TodoRequest) returns (TodoResponse);
-  rpc Update (TodoRequest) returns (TodoResponse);
-  rpc Delete (TodoRequest) returns (TodoResponse);
-}
-```
-
-This definition will produce, in generated code, a client that can be built with
-`protos.NewTodoServiceClient` and in a [server interface][server-interface] that
-you will need to implement:
+defines a `service` called **TodoService**. This definition will produce, in
+generated code, a client that can be built with `protos.NewTodoServiceClient`
+and a [server interface][server-interface] that you will need to implement:
 
 ```go
 package main
@@ -211,7 +228,7 @@ cd sample-grpc-client ; go run .
 ## Noteworthy
 
 - I firmly still believe that code generators are nice foot guns, but boy it's
-  running already.
+  running already and runs fast.
 - The sqlc generator is far more pleasant that what i expected.
 - The grpc generator for go is a little clumsy. I mean, `--go-grpc_out`, what on
   earth people who designed this where thinking?
@@ -219,25 +236,28 @@ cd sample-grpc-client ; go run .
   a struct, pass it to `RegisterTodoServiceServer` and let the IDE offer to do
   the interface implementation. Neat.
 - One drawback is the domain fragmentation: both sql and grpc define a Todo
-  struct. It's important to pay attention and be sure which one is being used.
+  struct. It's important to pay attention and be sure which one is being used,
+  also code to translate one into another is inevitable.
 
 ## Should generated code get versioned or not?
 
-This is a major issue and there is no final, correct answer.
+This is a major issue and there is ~~no final,~~ one correct answer.
 
-- The tools to codegen might not be present in the future.
+- The tools to codegen might not be present in the future or drift in available
+  functionality.
 - Outdated generated code might not be compatible with new libraries.
 - Build workflow might not get access to code generation tools.
 
 Lots of things could go wrong, but get this: usually we don't version build
-artifacts, binaries, we don't put derivatives on git. We do serve those things,
-those artifacts, by other channels, but not on git.
+artifacts, binaries. But source code we do.
 
-Therefore, the instructions on how to generate code must be versioned, not the
-byproduct of it.
+Therefore, the instructions on **how to generate code must be versioned** and
+**so the resulting code**
 
 Your pipelines must be able to invoke those tools and always generate the latest
-code, it helps to keep things solid and fresh.
+code, it helps to keep things solid and fresh. But if not available, the current
+generated code can help the app to keep running until a new solution is
+provisioned.
 
 [grpc]: https://grpc.io/docs/what-is-grpc/introduction/
 [sqlc]: https://docs.sqlc.dev/en/stable/index.html

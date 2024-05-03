@@ -46,21 +46,21 @@ there is no defined path here.
 
 However, I expect a few key techniques to be sampled over those exercises:
 
-- Hello world
-- Handle low level (console) user input (interactive, parameters, env vars)
-- Control flows (conditionals, loops, functions) and structures
-- Basic I/O (files)
-- Unit testing and coverage
-- Concurrency I (classic mutexes and wait groups)
-- Concurrency II (channels)
-- Reflection
-- Intermediate I/O ('low level' TCP/UDP)
-- Database (relational, document, key/value and ORM)
-- REST services (echo, fiber, but could be any)
-- Service Streams (kafka, nats, mqtt)
-- Publish and consume packages
-- Docker plugin (using go-plugin-helpers)
-- Kubernetes Controllers and Operators
+- [x] Hello world
+- [x] Handle low level (console) user input (interactive, parameters, env vars)
+- [x] Control flows (conditionals, loops, functions) and structures
+- [x] Basic I/O (files)
+- [x] Unit testing and coverage
+- [x] Concurrency I (classic mutexes and wait groups)
+- [x] Concurrency II (channels)
+- [x] Reflection
+- [x] Intermediate I/O ('low level' TCP/UDP)
+- [x] Database (relational, document, key/value and ORM)
+- [x] REST services (echo, fiber, but could be any)
+- [ ] Service Streams (kafka, nats, mqtt)
+- [ ] Publish and consume packages
+- [ ] Docker plugin (using go-plugin-helpers)
+- [ ] Kubernetes Controllers and Operators
 
 After that, mostly everything else ends up in reading docs from some library
 
