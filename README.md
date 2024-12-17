@@ -28,7 +28,7 @@ disk, put it into memory, do some calculations and then put it back into storage
 ~~projects just to do that.~~ Ok advanced examples might get
 [a bit complex](exercises/0016-rest-json).
 
-~~I am not into syntax abuse party~~ [I may do a little syntax abuse 
+~~I am not into syntax abuse party~~ [I may do a little syntax abuse
 sometimes](exercises/0005-todo-list-file/todo-list-v1.go), yet all snippets
 should be clean and objective, easy to understand.
 
@@ -39,7 +39,7 @@ you want to punch code against the system.
 
 ## A roadmap-ish path
 
-Besides following [a few](https://cursos.alura.com.br/formacao-go) 
+Besides following [a few](https://cursos.alura.com.br/formacao-go)
 [online](https://www.udemy.com/course/go-programming-language/learn/lecture/5985510?start=0#overview)
 [courses](https://www.udemy.com/course/multithreading-in-go-lang/learn/lecture/18225828?start=0#overview),
 there is no defined path here.
@@ -58,7 +58,7 @@ However, I expect a few key techniques to be sampled over those exercises:
 - [x] Database (relational, document, key/value and ORM)
 - [x] REST services (echo, fiber, but could be any)
 - [ ] Service Streams (kafka, nats, mqtt)
-- [ ] Publish and consume packages
+- [ ] Publish and consume packages/libraries
 - [ ] Docker plugin (using go-plugin-helpers)
 - [ ] Kubernetes Controllers and Operators
 
