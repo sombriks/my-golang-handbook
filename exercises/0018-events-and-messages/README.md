@@ -3,7 +3,11 @@
 There are several message brokers for go and we'll sample a few here in our
 testcases.
 
-## Dependencies
+## Requirements
+
+- go 1.23
+- testcontainers-go 0.34
+- sarama 1.43
 
 ## How to build
 
@@ -18,5 +22,5 @@ go test -v ./...
 
 ## Noteworthy
 
-- testify library is quite good
-- 
+- testify library is quite good, especially the bootstrap/setup step
+- testcontainers for kafka handles well our needs
