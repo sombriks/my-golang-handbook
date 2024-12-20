@@ -11,6 +11,10 @@ testcases.
 
 ## How to build
 
+```bash
+go build -v ./...
+```
+
 ## How to run/test
 
 Since this is built as a library, there is no main module. so all you have is
@@ -24,3 +28,5 @@ go test -v ./...
 
 - testify library is quite good, especially the bootstrap/setup step
 - testcontainers for kafka handles well our needs
+- sarama library is pretty straightforward. get a config, a producer, a message
+  and send it. or a consumer, a goroutine and read the channel for messages.
