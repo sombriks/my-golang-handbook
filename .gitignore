@@ -26,3 +26,8 @@ todo-doc
 todo-kv
 todo.db
 example0013
+
+# vitepress
+node_modules
+.vitepress/dist
+.vitepress/cache

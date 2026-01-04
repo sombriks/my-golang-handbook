@@ -1,0 +1,25 @@
+{
+  "name": "my-golang-handbook",
+  "version": "1.0.0",
+  "description": "Personal golang exercises from various sources",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sombriks/my-golang-handbook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sombriks/my-golang-handbook/issues"
+  },
+  "homepage": "https://github.com/sombriks/my-golang-handbook#readme",
+  "devDependencies": {
+    "vitepress": "^2.0.0-alpha.15"
+  }
+}
